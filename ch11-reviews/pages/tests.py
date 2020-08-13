@@ -1,7 +1,6 @@
 from django.test import SimpleTestCase
-from django.urls import reverse, resolve 
-
-from .views import HomePageView, AboutPageView
+from django.urls import reverse, resolve # new
+from .views import HomePageView, AboutPageView # new
 
 
 class HomepageTests(SimpleTestCase):
@@ -23,7 +22,7 @@ class HomepageTests(SimpleTestCase):
         self.assertNotContains(
             self.response, 'Hi there! I should not be on the page.')
 
-    def test_homepage_url_resolves_homepageview(self): 
+    def test_homepage_url_resolves_homepageview(self): # new
         view = resolve('/')
         self.assertEqual(
             view.func.__name__,
@@ -31,7 +30,7 @@ class HomepageTests(SimpleTestCase):
         )
 
 
-class AboutPageTests(SimpleTestCase): 
+class AboutPageTests(SimpleTestCase): # new
 
     def setUp(self):
         url = reverse('about')

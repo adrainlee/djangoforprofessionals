@@ -1,10 +1,10 @@
-import uuid 
+import uuid # new
 from django.db import models
-from django.urls import reverse
+from django.urls import reverse # new
 
 
 class Book(models.Model):
-    id = models.UUIDField( 
+    id = models.UUIDField( # new
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
@@ -15,5 +15,5 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
+    def get_absolute_url(self): # new
         return reverse('book_detail', args=[str(self.id)])
